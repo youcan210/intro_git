@@ -3,10 +3,9 @@
 
 <head>
   <title>Effort Leveling Support Eel</title>
-
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   <!-- NOTE: Bootstrap4.5公式サイトより。 -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <!-- 2.eel を JavaScript から利用します。 -->
   <script src="../eel.js"></script>
@@ -14,48 +13,36 @@
 
 <body>
   <div class="m-3 card">
-    <div class="card-header">
-      <form>
-
-        <div class="mb-3 px-3">
-          <label for="exampleInputEmail1" class="form-label">CSVファイル</label>
-          <input type="text" class="form-control num1" id="csv" aria-describedby="emailHelp">
-          <div id="txtMsg">HTML含まない</div>
+      <div class="mb-3 px-3">
+          Key: <input id="search_word"type="text" name="fname">
+          <input id="search" type="submit" value="Submit">
         </div>
-        <div class="mb-3 px-3">
-          <label for="exampleInputPassword1" class="form-label">キーワードを入力</label>
-          <input type="text" class="form-control num2" id="key">
-        </div>
-        <div class="mb-3 px-3">
-          <label for="exampleFormControlTextarea1" class="form-label">テキスト表示</label>
-          <textarea class="form-control" id="txt" rows="3"></textarea>
-        </div>
-        <button type="submit" id="func" class="btn-primary ms-3">検索</button>
-      </form>
+        <textarea></textarea>
+      </div>
     </div>
-  </div>
 
   <!-- NOTE: Bootstrap4.5公式サイトより。 -->
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script>
     // 4. 検索キーワードが空ならアラート表示
     // 空判定
-    function js_function() {
-      const val = [];
-      if(val == null || val == '') {
-        alert("キーワードが入力されていません");
-        // nullだった場合の処理
-      }
-    }
-    // 空キーワードアラート
-    var func = document.getElementById("func");
-    func.addEventListener('click',js_function,false);
+    // 値が入っていない判定をするテクニックは？
+    // 検索ボタン検知
+    // 検索ワードボックスの値取得
+    // 空のアラート
     
+    // 空キーワードアラート//check if string is undefined 
+    
+    search.addEventListener('click', () => {
+      //alert(search_word.value)
+      eel.pyFunc2(search_word.value)
+  })
+      let val = eel.pyFunc2(search_word.value);
     // 5.Scriptの関数の戻り値をpythonで取得
-    eel.expose(values)
-    function js_view(){
-      
-    }
+    //eel.expose(values)
+    //function js_view(){
+
+    //}
     
     // callbackで取得
     // eel.expose(alert);
