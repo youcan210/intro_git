@@ -2,29 +2,29 @@
 <html>
 
 <head>
-  <title>Effort Leveling Support Eel</title>
-  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+<title>Effort Leveling Now Eel</title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 
-  <!-- 2.eel を JavaScript から利用します。 -->
-  <script src="../eel.js"></script>
+<!-- 2.eel を JavaScript から利用します。 -->
+
 </head>
 <body>
 
-  <h2>eel</h2>
-        <div class="">
-            CSVファイル名<input id="csv_name" type="text"><br/>
+<h2>eel</h2>
+    <div class="">
+        CSVファイル名<input id="csv_name" type="text"><br/>
 
-            検索ワード<input id="search_word" type="text">
+        検索ワード<input id="search_word" type="text">
 
-            <button id="search">検索</button><br/>
-        </div>
+        <button id="search">検索</button><br/>
+    </div>
 
-        <div>
-            <textarea id="result" class="log-view-area" rows='10' cols='50'></textarea>
-        </div>
-
-<script type="text/javascript" src="../eel.js"></script>
+    <div>
+        <textarea id="result" class="log-view-area" rows='10' cols='50'></textarea>
+    </div>
+        <script type="text/javascript" src="/eel.js"></script>
 <script>
+    eel.test_py('test')
     var fileName = document.getElementById('csv_name');
     var searchWord = document.getElementById('search_word');
     search.addEventListener('click', () => {
