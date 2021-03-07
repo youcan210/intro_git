@@ -4,52 +4,41 @@
 <head>
   <title>Effort Leveling Support Eel</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
-  <!-- NOTE: Bootstrap4.5公式サイトより。 -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
   <!-- 2.eel を JavaScript から利用します。 -->
   <script src="../eel.js"></script>
 </head>
-
 <body>
-  <div class="m-3 card">
-      <div class="mb-3 px-3">
-          Key: <input id="search_word"type="text" name="fname">
-          <input id="search" type="submit" value="Submit">
+
+  <h2>eel</h2>
+        <div class="">
+            CSVファイル名<input id="csv_name" type="text"><br/>
+
+            検索ワード<input id="search_word" type="text">
+
+            <button id="search">検索</button><br/>
         </div>
-        <textarea></textarea>
-      </div>
-    </div>
 
-  <!-- NOTE: Bootstrap4.5公式サイトより。 -->
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-  <script>
-    // 4. 検索キーワードが空ならアラート表示
-    // 空判定
-    // 値が入っていない判定をするテクニックは？
-    // 検索ボタン検知
-    // 検索ワードボックスの値取得
-    // 空のアラート
-    
-    // 空キーワードアラート//check if string is undefined 
-    
+        <div>
+            <textarea id="result" class="log-view-area" rows='10' cols='50'></textarea>
+        </div>
+
+<script type="text/javascript" src="../eel.js"></script>
+<script>
+    var fileName = document.getElementById('csv_name');
+    var searchWord = document.getElementById('search_word');
     search.addEventListener('click', () => {
-      //alert(search_word.value)
-      eel.pyFunc2(search_word.value)
-  })
-      let val = eel.pyFunc2(search_word.value);
-    // 5.Scriptの関数の戻り値をpythonで取得
-    //eel.expose(values)
-    //function js_view(){
-
-    //}
-    
-    // callbackで取得
-    // eel.expose(alert);
-    // function alert(args) {
-      // result = result.value + text + '\n'
-   //  }
-  </script>
+        eel.kimetsu_search(search_word.value,fileName.value)
+        alert('alert!!EventListener');
+    })
+    let result = eel.kimetsu_search(search_word.value,fileName.value)
+    eel.expose(view_log_js)
+    function view_log_js(text){
+        //↑入力された値をテキストエリアに表示する
+        document.getElementById('search_word').value += text + '\n';
+        // ↑入力したサーチボックスの値を取得
+    }
+</script>
 </body>
 
 </html>
